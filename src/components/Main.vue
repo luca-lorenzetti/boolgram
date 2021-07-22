@@ -31,6 +31,13 @@ export default {
   display: flex;
   width: 80%;
   margin: 0 auto;
-  border: 1px solid black;
+
+  &>div{
+    margin-top: 150px;
+  }
+  .left{
+    flex-basis: 50%;
+    flex: 1;
+  }
 }
 </style>
