@@ -9,7 +9,7 @@
       <div class="profile">
         <i class="material-icons">favorite_border</i>
         <i class="material-icons">home</i>
-        <img src="../assets/profile.jpg" alt="icon-profile" id="profile_image">
+        <img src="../assets/profile.jpg" alt="icon-profile" class="profile_image">
       </div>
       
 
@@ -26,6 +26,16 @@ export default {
 </script>
 
 <style lang="scss">
+
+  i:hover{
+      cursor: pointer;
+  }
+
+  a{
+    text-decoration: none;
+    color: deepskyblue;
+    font-weight: bold;
+  }
 
   header{
     border-top: 1px solid #000;
@@ -52,21 +62,25 @@ export default {
       }
 
       .profile{
+        display: flex;
+        align-items: center;
+      }
+      .profile{
 
         > * {
           margin: 0 10px;
         }
 
-        > i:hover, > img:hover{
+        > img:hover{
           cursor: pointer;
         }
 
-        #profile_image{
-          width: 40px;
-          border-radius: 50%;
-        }
       }
 
     }
+  }
+  .profile_image{
+    width: 40px;
+    border-radius: 50%;
   }
 </style>

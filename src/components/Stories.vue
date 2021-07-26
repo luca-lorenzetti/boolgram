@@ -1,58 +1,45 @@
 <template>
-    <div class="stories">
-        <div class="storie" v-for="storie in stories" :key="storie">
-           <img :src="storie.profile_picture" alt="img-{storie}">
-           <p class="profile_name">{{storie.profile_name}}</p>
+    <div>
+        <div class="stories">
+                <div class="storie" v-for="(storie, index) in dataStories" :key="index">
+                    <img :src="storie.profile_picture" alt="img-{storie}">
+                    <p class="profile_name">{{storie.profile_name}}</p>
+                </div>
         </div>
     </div>
+   
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: "Stories",
-  data(){
-      return{
-        stories: []
-      }
+  props:{
+      dataStories: Array
   },
-  
-  created(){
-    axios.get('https://flynn.boolean.careers/exercises/api/boolgram/profiles')
-    .then( (response) => {
-        // handle success
-        this.stories = response.data;
 
-        // console.log(response.data);
-        console.log(this.stories);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-  })
-  }
 };
 </script>
 
 <style lang="scss">
     .stories{
-        height: 300px;
+        height: 180px;
         border: solid lightgray 1px;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+        padding: 50px 50px 20px 50px;
 
         .storie{
             display: flex;
             flex-direction: column;
-            margin: 0 10px;
             text-align: center;
 
             img{
-                width: 50px;
+                object-fit: cover;
+                width: 60px;
                 padding: 1px;
-                height: 50px;
+                height: 60px;
                 border-radius: 50%;
                 border: 2px solid red;
             } 
@@ -64,7 +51,7 @@ export default {
                 height: 1.2em; 
                 white-space: nowrap;
                 margin: 10px 0;
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: bold;
             }
         }  
