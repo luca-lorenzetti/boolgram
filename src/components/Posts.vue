@@ -1,6 +1,6 @@
 <template>
     <div class="posts">
-        <Single_post v-for="post in posts" :key="post" :single_post="post"/>
+        <Single_post v-for="(post,index) in posts" :key="index" :single_post="post"/>
     </div>
 </template>
 
@@ -9,8 +9,7 @@ import Single_post from "@/components/Single_post.vue";
 
 
 export default {
-  watch: {
-  },
+
   name: "Posts",
   components:{
     Single_post  

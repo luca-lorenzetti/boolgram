@@ -31,8 +31,18 @@
                     <ul>
                         <li v-for="i in 4" :key="i"> <strong>{{single_post.comments[i].username}}</strong>{{single_post.comments[i].text}}</li>
                     </ul>
+                    <div class="time">
+                        <p> {{getHours(single_post.date.date)}} Ore fa</p>
+                    </div>
+                    <div class="add_comment">
+                        <input type="text" placeholder="Aggiunti un commento">
+                        <a href="">Pubblica</a>
+                    </div>
                 </div>
+
+             
             </div>
+        
          
     </div>
 </template>
@@ -44,7 +54,17 @@ export default {
   props:{
       single_post: Object
   },
-    mounted(){
+    methods:{
+        getHours(date){
+     
+        let dt1 = new Date(date);
+        let dt2 = new Date();
+
+        let diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        diff /= (60 * 60);
+        
+        return Math.abs(Math.round(diff));
+        }
     }
 };
 </script>
@@ -150,6 +170,25 @@ export default {
         ul > li{
             text-align: left;
             margin: 5px 0;
+        }
+
+        .time{
+            text-align: left;
+            color: grey;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+
+        .add_comment{
+            margin-top: 1px solid lightgray;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+
+            input{
+                border:none;
+                
+            }
         }
     }
 </style>

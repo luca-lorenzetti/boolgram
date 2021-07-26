@@ -15,8 +15,7 @@ export default {
   props:{
       profile: Object
   },
-    mounted(){
-    }
+
 };
 </script>
 

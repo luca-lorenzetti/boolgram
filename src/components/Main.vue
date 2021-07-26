@@ -61,7 +61,7 @@ export default {
               // handle success
               this.posts = response.data;
 
-              console.log(response.data);
+              // console.log(response.data);
           })
           .catch(function (error) {
               // handle error
